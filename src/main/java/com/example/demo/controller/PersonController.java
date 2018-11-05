@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +20,7 @@ public class PersonController {
 	@PostMapping("/person")
 	public ResponseEntity<?> savePerson(@RequestBody Person person) {
 		personService.savePerson(person);
-		return new ResponseEntity<Person>(personService,HttpStatus.OK);
+		return new ResponseEntity<Person>(person,HttpStatus.OK);
 		
 	}
 	
