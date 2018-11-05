@@ -16,8 +16,10 @@ public class PersonController {
 	private PersonService personService;
 	
 	@PostMapping("/person")
-	public void savePerson(@RequestBody Person person) {
+	public ResponseEntity<?> savePerson(@RequestBody Person person) {
 		personService.savePerson(person);
+		return new ResponseEntity<Person>(personService,HttpStatus.OK);
+		
 	}
 	
 	@GetMapping("/persons")
